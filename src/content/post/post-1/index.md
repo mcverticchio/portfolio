@@ -1,6 +1,7 @@
 ---
 title: 'My First Blog Post'
-publishDate: "30 January 2021"
+publishDate: "30 Jan 2021"
+updatedDate: "May 2 2024"
 description: 'This is the first post of my new Astro blog. It has to be atleast 50 character according to my typescript config file.'
 coverImage:
     src: "./cover.png"
