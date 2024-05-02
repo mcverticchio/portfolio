@@ -1,6 +1,8 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
+import { Image } from "astro:assets";
+
 interface Props {
     content: CollectionEntry<"post">
 }
@@ -11,9 +13,22 @@ const {
 
 const { remarkPluginFrontmatter } = await render();
 ---
+{
+    data.coverImage && (
+        <div class="aspect-h-9 aspect-w-16 mb-6">
+            <Image 
+                alt={data.coverImage.alt}
+                class="object-cover"
+                fetchpriority="high"
+                loading="eager"
+                src={data.coverImage.src}
+            />
+        </div>
+    )
+}
 <h1 class="title mb-3 sm:mb-1">
 	{data.title}
 </h1>
 <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
-    HELLO
+    Date here
 </div>
