@@ -1,54 +1,60 @@
-# Astro Starter Kit: Basics
+# My Blog Site
 
-```sh
-npm create astro@latest -- --template basics
-```
+This site is a personal portfolio site as well as a collection of blogs about new things I'm learning related to coding and other general interests.  It is using [Astro](https://astro.build/) and is modeled after the [Astro Cactus Starter Theme](https://astro.build/themes/details/astro-cactus/).  
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The Cactus Readme has excellent documentation, but I am adding my notes for my own reference and documentation of what I've learned while porting things from the cactus theme.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## Structure
 
-## 🚀 Project Structure
+The app is structured as follows:
 
-Inside of your Astro project, you'll see the following folders and files:
+`src/components` - a components directory with various individual components used throughout the application organized by feature (common, posts, and layout).
+`src/content` - a content directory with content collections (posts) and frontmatter schema for the colletion used in the application.
+`src/data` - a data directory that contains any functions used to perform common operations to query the collection.
+`src/layouts` - a layouts directory with a page and blog layout component used on multiple pages.
+`src/pages` - a pages directory that contains main pages in the website (so far) including a home page, an about page, a 404 page, a main blog page, and individual posts pages.
+`src/styles` - a styles directory with global styles used in the application.
+`src/utils` - a utility directory with commonly used functions throughout the application.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### Paginator
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Utilizing the (paginate())[https://docs.astro.build/en/guides/routing/#pagination] func.
 
-Any static assets, like images, can be placed in the `public/` directory.
+### Image
 
-## 🧞 Commands
+Utilizing the built in (<Image>)[https://docs.astro.build/en/guides/images/] component.
 
-All commands are run from the root of the project, from a terminal:
+### Content Collection
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Modeled after (Content Collection)[https://docs.astro.build/en/guides/content-collections/]
 
-## 👀 Want to learn more?
+### Main Blog Page
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Based on information about pagination in the documentation the main page is rendered in the [...page].astro file.  
+
+### Slug Pages
+
+Slugs are generated in [slug].astro.
+
+### Alias
+
+To create shortcuts for my imports. In the ts.config can include paths in 'paths' array which allows using the @ symbol in files.
+
+### Prefetching pages
+
+Adding`"prefetch: true"` to my astro config file adds a prefetch script to all pages of the site. I can then add the data-astro-prefetch attribute to any <a /> links on the site to opt-in to prefetching. So basically, when I hover over the link, the script will fetch the page in the background.  Check out the network request tab to see in action.
+
+### GetStaticPaths
+
+A (built-in function)[https://docs.astro.build/en/reference/api-reference/#getstaticpaths] that returns an array of page routes, and all pages at those routes will use the same template defined in the file.
+
+### Custom tailwind theme
+
+No idea how this works yet - except magic.
+
+
+
+
+
