@@ -1,7 +1,31 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '@/layouts/Layout.astro';
+import PostPreview from '@/components/blog/PostPreview.astro';
+import { getAllPosts } from "@/data/post";
+// import Greeting from '../components/Greeting';
 const pageTitle = "Home Page";
+const allPosts = await getAllPosts();
+
+const meta = {
+  title: "Home page"
+}
 ---
-<Layout pageTitle={pageTitle}>
-  <h2>My awesome blog subtitle</h2>
+<Layout meta={meta}>
+  <!-- <Greeting client:load messages={["hej", "hallo", "hola", "habari"]} /> -->
+  <section>
+    <h2 class="title mb-6">Hello!</h2>
+    <p class="mb-4">
+      Here is some info about me. More to come...
+    </p>
+  </section>
+  <section aria-label="Blog post list" class="mt-16">
+    <h3 class="title mb-4 text-xl">Posts</h3>
+    <ul class="space-y-4">
+      {allPosts.map(post => (
+        <li class="flex flex-col gap-x-2 sm:flex-row">
+          <PostPreview post={post} />
+        </li>
+      ))}
+    </ul>
+  </section>
 </Layout>

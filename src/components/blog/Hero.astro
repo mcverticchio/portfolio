@@ -1,0 +1,19 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+    content: CollectionEntry<"post">
+}
+
+const {
+    content: { data, render }
+} = Astro.props;
+
+const { remarkPluginFrontmatter } = await render();
+---
+<h1 class="title mb-3 sm:mb-1">
+	{data.title}
+</h1>
+<div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+    HELLO
+</div>

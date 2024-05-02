@@ -1,0 +1,9 @@
+---
+const { post } = Astro.props;
+const postDate = post.data.updatedDate ?? post.data.publishDate;
+---
+{postDate}
+<a class="cactus-link" data-astro-prefetch href={`/posts/${post.slug}/`}>
+    {post.data.title}
+</a>
+<q class="line-clamp-3 block italic">{post.data.description}</q>
