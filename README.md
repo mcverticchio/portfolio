@@ -9,14 +9,15 @@ The Cactus Readme has excellent documentation, but I am adding my notes for my o
 
 The app is structured as follows:
 
-`src/components` - a components directory with various individual components used throughout the application organized by feature (common, posts, and layout).
-`src/content` - a content directory with content collections (posts) and frontmatter schema for the colletion used in the application.
-`src/data` - a data directory that contains any functions used to perform common operations to query the collection.
-`src/layouts` - a layouts directory with a page and blog layout component used on multiple pages.
-`src/pages` - a pages directory that contains main pages in the website (so far) including a home page, an about page, a 404 page, a main blog page, and individual posts pages.
-`src/styles` - a styles directory with global styles used in the application.
-`src/utils` - a utility directory with commonly used functions throughout the application.
-
+| Path | Description |
+| ----------- | ----------- |
+| `src/components` | A components directory with various individual components used throughout the application organized by feature (common, posts, and layout). |
+| `src/content` | A content directory with content collections (posts) and frontmatter schema for the colletion used in the application. | 
+| `src/data` | A data directory that contains any functions used to perform common operations to query the collection. |
+| `src/layouts` | A layouts directory with a page and blog layout component used on multiple pages. |
+| `src/pages` | A pages directory that contains main pages in the website (so far) including a home page, an about page, a 404 page, a main blog page, and individual posts pages. |
+|`src/styles` | A styles directory with global styles used in the application. |
+| `src/utils` | A utility directory with commonly used functions throughout the application. |
 
 ### Paginator
 
