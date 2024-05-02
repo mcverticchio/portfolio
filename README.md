@@ -1,4 +1,4 @@
-# My Blog Site
+# Site
 
 This site is a personal portfolio site as well as a collection of blogs about new things I'm learning related to coding and other general interests.  It is using [Astro](https://astro.build/) and is modeled after the [Astro Cactus Starter Theme](https://astro.build/themes/details/astro-cactus/).  
 
@@ -20,15 +20,15 @@ The app is structured as follows:
 
 ### Paginator
 
-Utilizing the (paginate())[https://docs.astro.build/en/guides/routing/#pagination] func.
+Utilizing the [paginate()](https://docs.astro.build/en/guides/routing/#pagination) func.
 
 ### Image
 
-Utilizing the built in (<Image>)[https://docs.astro.build/en/guides/images/] component.
+Utilizing the built in [<Image>](https://docs.astro.build/en/guides/images/) component.
 
 ### Content Collection
 
-Modeled after (Content Collection)[https://docs.astro.build/en/guides/content-collections/]
+Modeled after [Content Collection](https://docs.astro.build/en/guides/content-collections/)
 
 ### Main Blog Page
 
@@ -48,7 +48,7 @@ Adding`"prefetch: true"` to my astro config file adds a prefetch script to all p
 
 ### GetStaticPaths
 
-A (built-in function)[https://docs.astro.build/en/reference/api-reference/#getstaticpaths] that returns an array of page routes, and all pages at those routes will use the same template defined in the file.
+A [built-in function](https://docs.astro.build/en/reference/api-reference/#getstaticpaths) that returns an array of page routes, and all pages at those routes will use the same template defined in the file.
 
 ### Custom tailwind theme
 
