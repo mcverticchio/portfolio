@@ -2,6 +2,7 @@
 import type { GetStaticPaths, Page } from "astro";
 import type { CollectionEntry } from "astro:content";
 
+import Paginator from "@/components/Paginator.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getAllPosts } from "@/data/post";
@@ -24,6 +25,20 @@ const meta = {
 	title: "Posts",
 };
 
+const paginationProps = {
+    ...(page.url.prev && {
+        prevUrl: {
+            text: `← Previous Posts`,
+			url: page.url.prev,
+        }
+    }),
+    ...(page.url.next && {
+		nextUrl: {
+			text: `Next Posts →`,
+			url: page.url.next,
+		},
+	}),
+};
 
 ---
 <Layout meta={meta}>
@@ -39,5 +54,6 @@ const meta = {
                 ))
             }
         </ul>
+        <Paginator {...paginationProps} />
     </section>
 </Layout>
