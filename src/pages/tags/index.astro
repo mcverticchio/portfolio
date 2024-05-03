@@ -1,37 +1,32 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-const allPosts = await Astro.glob('../posts/*.md');
-const tags = [...new Set(allPosts.map(post => post.frontmatter.tags).flat())];
+import { getAllPosts, getUniqueTagsWithCount } from "@/data/post";
+
+const allPosts = await getAllPosts();
+const allTags = getUniqueTagsWithCount(allPosts);
+
 const meta = {
-	description: "A list of all the topics I've written about in my posts",
-	title: "All Tags",
-};
+  title: "Tags",
+  description: "Tags associated with blog posts."
+}
 ---
 <Layout meta={meta}>
   <h1 class="title mb-6">Tags</h1>
   <ul class="space-y-4">
-      {tags.map(tag => 
-          <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
-      )}
+    {allTags.map(([tag, val]) => (
+      <li class="flex items-center gap-x-2">
+				<a
+          class="cactus-link inline-block"
+          data-astro-prefetch
+          href={`/tags/${tag}/`}
+          title={`View posts with the tag: ${tag}`}
+        >
+          &#35;{tag}
+        </a>
+        <span class="inline-block">
+          - {val} Post{val > 1 && "s"}
+        </span>
+      </li>
+    ))}
   </ul>
 </Layout>
-
-<style>
-    a {
-      color: #00539F;
-    }
-  
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-    }
-  
-    .tag {
-      margin: 0.25em;
-      border: dotted 1px #a1a1a1;
-      border-radius: .5em;
-      padding: .5em 1em;
-      font-size: 1.15em;
-      background-color: #F8FCFD;
-    }
-  </style>
